@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Proptypes from "prop-types";
 const ContainerStyle = {
   display: "flex",
   alignItems: "center",
@@ -9,9 +10,9 @@ const starsContiner = {
   display: "flex",
   gap: "4px",
 };
-
-//
-
+StarRating.prototype = {
+  maxRating: Proptypes.number,
+};
 //
 export const StarRating = ({
   maxRating = 5,
@@ -19,12 +20,13 @@ export const StarRating = ({
   size = "30px",
   message = [],
   defaultRating = 0,
+  setMovie,
 }) => {
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(defaultRating);
 
-  console.log(message);
-  console.log(maxRating);
+  //
+
   const textStyle = {
     lineHeight: "1",
     margin: "0",
@@ -33,6 +35,9 @@ export const StarRating = ({
   };
   const handleRating = (rating) => {
     setRating(() => {
+      return rating;
+    });
+    setMovie(() => {
       return rating;
     });
   };
@@ -108,14 +113,6 @@ const Stars = ({ full, onClick, onHover, onLeave, color, size }) => {
         </svg>
       )}
     </span>
-  );
-};
-
-const Starts = () => {
-  return (
-    <div>
-      <StarRating />
-    </div>
   );
 };
 
