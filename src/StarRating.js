@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Proptypes from "prop-types";
 const ContainerStyle = {
   display: "flex",
   alignItems: "center",
@@ -10,12 +9,9 @@ const starsContiner = {
   display: "flex",
   gap: "4px",
 };
-StarRating.prototype = {
-  maxRating: Proptypes.number,
-};
-//
+
 export const StarRating = ({
-  maxRating = 5,
+  maxRating = 10,
   color = "gold",
   size = "30px",
   message = [],

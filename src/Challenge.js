@@ -15,6 +15,8 @@ function TextExpander({
     border: "none",
     marginLeft: "0.5rem",
     backgroundColor: "transparent",
+    cursor: "pointer",
+    color: buttonColor,
   };
 
   const handleExpand = () => {
@@ -25,23 +27,13 @@ function TextExpander({
   let whattoshow = children.length;
   const displayText = isExpanded
     ? children
-    : children.substring(0, whattoshow / 2);
+    : children.substring(0, whattoshow / 2) + "...";
 
-  const linkStyle = {
-    textDecoration: "none",
-    letterSpacing: "1px",
-  };
   return (
-    <div
-      className={className}
-      style={{ width: "80%", margin: "10px auto" }}
-      className={className}
-    >
+    <div className={className} style={{ width: "80%", margin: "10px auto" }}>
       {displayText}
       <button type="button" style={buttonStyle} onClick={handleExpand}>
-        <a href="#" style={linkStyle}>
-          {isExpanded ? expandButtonText : "Show more"}
-        </a>
+        {isExpanded ? expandButtonText : "Show more"}
       </button>
     </div>
   );
@@ -50,7 +42,7 @@ function TextExpander({
 export const Challenge = () => {
   return (
     <div>
-      <TextExpander expanded={true}>
+      <TextExpander expanded={true} buttonColor={"green"}>
         Space travel is the ultimate adventure! Imagine soaring past the stars
         and exploring new worlds. It's the stuff of dreams and science fiction,
         but believe it or not, space travel is a real thing. Humans and robots
@@ -72,7 +64,7 @@ export const Challenge = () => {
         foot on the moon or when rovers were sent to roam around on Mars.
       </TextExpander>
 
-      <TextExpander expanded={true} className="box">
+      <TextExpander expanded={true} className="box" buttonColor={"blue"}>
         Space missions have given us incredible insights into our universe and
         have inspired future generations to keep reaching for the stars. Space
         travel is a pretty cool thing to think about. Who knows what we'll
